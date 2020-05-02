@@ -1,7 +1,7 @@
 # music_generator
 Generating music using deep neural nets!
 
-*If you want to generate music right away and try the pre-trained model jump to [Music Genration](#music-genration).*
+*If you want to generate music right away and try the pre-trained model jump to [Music Genration](#3.-music-genration).*
 
 
 ## Needed Libreries:
@@ -31,7 +31,7 @@ For training your own model use the following:
 
 If you do not have diffrent dataset for the validation, the model will train on a 90%/10% training/validation spilit.
 
-## Music Genration
+## 3. Music Genration
 
 1. Given a MIDI music it will generate notes that are likely to follow your input melody. 
 2. If no inputs are given it will generate music from scratch.
