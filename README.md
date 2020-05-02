@@ -1,7 +1,7 @@
 # music_generator
 Generating music using deep neural nets!
 
-*If you want to generate music right away and try the pre-trained model jump to [Music Genration](#3.-music-genration).*
+*If you want to generate music right away and try the pre-trained model jump to [Music Genration](#music-genration).*
 
 
 ## Needed Libreries:
