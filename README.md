@@ -31,7 +31,7 @@ For training your own model use the following:
 
 If you do not have diffrent dataset for the validation, the model will train on a 90%/10% training/validation spilit.
 
-## 3.Music Genration
+## 3. Music Genration
 
 1. Given a MIDI music it will generate notes that are likely to follow your input melody. 
 2. If no inputs are given it will generate music from scratch.
