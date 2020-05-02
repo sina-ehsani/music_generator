@@ -1,5 +1,7 @@
-# Imports python music_train.py melody_training_dataset.npz melody_test_dataset.npz 
+# python music_train.py melody_training_dataset.npz melody_test_dataset.npz 
 
+
+# Imports
 
 from music21 import converter, instrument, note, chord, stream, midi
 import glob
@@ -27,7 +29,8 @@ VOCABULARY_SIZE = 130 # known 0-127 notes + 128 note_off + 129 no_event
 SEQ_LEN = 30
 BATCH_SIZE = 64
 HIDDEN_UNITS = 64
-EPOCHS = 30
+EPOCHS = 50
+DROPOUT = 0.3
 SEED = 2345  # 2345 seems to be good.
 np.random.seed(SEED)
 
@@ -100,8 +103,8 @@ def model():
 	model_train.add(Embedding(VOCABULARY_SIZE, HIDDEN_UNITS, input_length=SEQ_LEN))
 
 	# LSTM part
-	model_train.add(Bidirectional(GRU(HIDDEN_UNITS, return_sequences=True, dropout=0.3)))
-	model_train.add(GRU(HIDDEN_UNITS , dropout=0.3))
+	model_train.add(Bidirectional(GRU(HIDDEN_UNITS, return_sequences=True, dropout=DROPOUT)))
+	model_train.add(GRU(HIDDEN_UNITS , dropout=DROPOUT))
 
 	# Project back to vocabulary
 	model_train.add(Dense(VOCABULARY_SIZE, activation='softmax'))
@@ -145,10 +148,10 @@ def main():
 
 		plot_data(test_set)
 
-		history=  model_train.fit(X, y,validation_data=(X_test,y_test) ,  epochs=30, batch_size=BATCH_SIZE, callbacks=[es,mc],verbose=1)
+		history=  model_train.fit(X, y,validation_data=(X_test,y_test) ,  epochs=EPOCHS, batch_size=BATCH_SIZE, callbacks=[es,mc],verbose=1)
 
 	else:
-		history=  model_train.fit(X, y,validation_split=0.10 ,  epochs=30, batch_size=BATCH_SIZE, callbacks=[es,mc],verbose=1)
+		history=  model_train.fit(X, y,validation_split=0.10 ,  epochs=EPOCHS, batch_size=BATCH_SIZE, callbacks=[es,mc],verbose=1)
 	
 	# Plot training & validation loss values
 	plt.plot(history.history['loss'])
