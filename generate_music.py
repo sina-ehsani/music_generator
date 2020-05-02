@@ -1,4 +1,3 @@
-# Imports
 from music21 import converter, instrument, note, chord, stream, midi
 import glob
 import time
@@ -25,9 +24,9 @@ SEQ_LEN = 30
 BATCH_SIZE = 64
 HIDDEN_UNITS = 64
 EPOCHS = 5
-SEED = 2345  # 2345 seems to be good.
+# SEED = 2345  # 2345 seems to be good.
 # input_midi_size =5
-np.random.seed(SEED)
+# np.random.seed(SEED)
 
 
 
