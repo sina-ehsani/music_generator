@@ -1,7 +1,7 @@
 # music_generator
 Generating music using deep neural nets!
 
-*If you want to generate music right away and try the pre-trained model jump to **3. Music Genration**.*
+*If you want to generate music right away and try the pre-trained model jump to [3. Music Genration](https://github.com/sinaehsani6/music_generator/tree/master#3-music-genration).*
 
 
 ## Needed Libreries:
@@ -38,6 +38,6 @@ If you do not have diffrent dataset for the validation, the model will train on 
 
 ```python generate_music.py <MIDI_input_path(optional)> <output_length(optional)> <tempreture(optional)>```
 
-MIDI_input_file: you can insert any MIDI file as the input, if no inputs is given, the model will generate a music from scratch.
-output_length: The number of quarter notes you want to be generated.
-Tempreture: Temperature is a parameter used for sampling in the last layer of the neural network. You can think of it as controlling randomness: higher values produce more variation and some- times even chaos, while lower values are more conservative in their predictions.
+- **MIDI_input_file**: you can insert any MIDI file as the input, if no inputs is given, the model will generate a music from scratch.
+- **output_length**: The number of quarter notes you want to be generated.
+- **Tempreture**: Temperature is a parameter used for sampling in the last layer of the neural network. You can think of it as controlling randomness: higher values produce more variation and some- times even chaos, while lower values are more conservative in their predictions.
