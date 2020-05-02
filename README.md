@@ -1,7 +1,7 @@
 # music_generator
 Generating music using deep neural nets!
 
-*If you want to generate music right away and try the pre-trained model jump to [3. Music Genration](#3.-Music-Genration:).*
+*If you want to generate music right away and try the pre-trained model jump to [3. Music Genration](##3.Music-Genration:).*
 
 
 ## Needed Libreries:
@@ -12,7 +12,7 @@ Generating music using deep neural nets!
 4. Pandas
 5. matplotlib (for training)
 
-## 1. MIDI processing
+## 1.MIDI processing
 
 For the MIDI processing use the follwoing code 
 
@@ -23,7 +23,7 @@ This model will decode all the MIDI files in the containing folder of folders to
 If you have different datasets for training and validation, do the preprocessing for each separately.
 
 
-## 2. Training Model
+## 2.Training Model
 
 For training your own model use the following:
 
@@ -31,7 +31,7 @@ For training your own model use the following:
 
 If you do not have diffrent dataset for the validation, the model will train on a 90%/10% training/validation spilit.
 
-## 3. Music Genration: 
+## 3.Music Genration: 
 
 1. Given a MIDI music it will generate notes that are likely to follow your input melody. 
 2. If no inputs are given it will generate music from scratch.
