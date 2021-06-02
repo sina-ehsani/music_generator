@@ -1,0 +1,76 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+## TO USE
+# > cd {REPOSITORY_ROOT}
+# > pip install pre-commit
+# > pre-commit install -c {THIS_FILE_PATH}
+
+## Install libraries needed for hooks:
+# pip install -U black flake8-eradicate jupytext isort
+
+# Use command line OR any git gui interface
+# > git add xyz.xyz
+# > git commit -m "This is my very descriptive and helpful message"
+
+# For supported hooks, this will let it know what to check for (e.g. `black`)
+default_language_version:
+  python: python3.8
+
+default_stages: [commit]
+
+# Each of these represents a step to run
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+      - id: check-added-large-files # as it sounds, checks for accidental adds
+        name: Checking for large files
+        args: ["--maxkb=10000"]
+      - id: check-yaml # check syntax
+        name: Checking yaml syntax
+      - id: detect-private-key # ditto
+        name: Checking for commited private keys
+      - id: debug-statements # check for commented out debugs
+        name: Checking for debug statements
+
+  # isort:
+  - repo: local
+    hooks:
+      - id: isort
+        name: Sorting imports
+        entry: isort --profile black --line-length=120
+        language: system
+        types: [python]
+
+  # black formatter
+  - repo: local
+    hooks:
+      - id: black
+        name: Formatting code with black
+        entry: black --line-length=120 --target-version=py38
+        language: system
+        types: [python]
+
+  # flake8 checks
+  - repo: local
+    hooks:
+      - id: flake8
+        name: Running flake8 checks
+        entry: flake8 --ignore=E203,E231,E501,W503,W601
+        language: system
+        types: [python]
+
+  # This will add a md and unstage the ipynb for notebooks
+  - repo: local
+    hooks:
+      - id: jupytext
+        name: Converting .ipynb files to markdown
+        entry: jupytext --to md
+        files: .ipynb
+        language: system
+      - id: unstage-ipynb
+        name: Unstaging the source ipynb files from the commit
+        entry: git reset HEAD
+        files: .ipynb
+        language: system

@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "music_generator"
+version = "0.1.0"
+description = ""
+authors = ["Sina Ehsani <sina@redshred.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+music21 = "^6.7.1"
+keras = "^2.4.3"
+pandas = "^1.2.4"
+tensorflow = "2.3"
+numpy = "1.18"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+isort = "^5.8.0"
+black = "^21.5b2"
+ipdb = "^0.13.9"
+ipykernel = "^5.5.5"
+pre-commit = "^2.13.0"
+jupytext = "^1.11.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
