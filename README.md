@@ -11,6 +11,7 @@ Generating music using deep neural nets!
 3. Numpy
 4. Pandas
 5. matplotlib (for training)
+6. tensorflow
 
 ## 1. MIDI processing
 
