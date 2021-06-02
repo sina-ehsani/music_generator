@@ -136,8 +136,8 @@ def decoder_model(input_midi_size):
     )
 
     # LSTM part
-    model_dec.add(Bidirectional(GRU(HIDDEN_UNITS, return_sequences=True)))
-    model_dec.add(GRU(HIDDEN_UNITS))
+    model_dec.add(Bidirectional(GRU(HIDDEN_UNITS, return_sequences=True, reset_after=False)))
+    model_dec.add(GRU(HIDDEN_UNITS, reset_after=False))
 
     # project back to vocabulary
     model_dec.add(Dense(VOCABULARY_SIZE, activation="softmax"))
