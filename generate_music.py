@@ -3,10 +3,10 @@ import sys
 
 import numpy as np
 import pandas as pd
+from keras import Sequential
+from keras.layers import GRU, Bidirectional, Dense
+from keras.layers.embeddings import Embedding
 from music21 import chord, converter, midi, note, stream
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import GRU, Bidirectional, Dense
-from tensorflow.keras.layers.embeddings import Embedding
 
 VOCABULARY_SIZE = 130  # known 0-127 notes + 128 note_off + 129 no_event
 SEQ_LEN = 30
